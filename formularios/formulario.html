@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- A continuación veremos conceptos utilizados en programación del lado del ***cliente*** -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        textarea {
+            resize: none;
+        }
+        legend{
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Formularios</h3>
+    <form method="get">
+        <legend>Campos más importantes</legend>
+        <!--  Al enviar datos en el formulario, aparece un "?" al final de la ruta del navegador,
+              todo lo que está después del ? se llama Query string. Esto es parte del protocolo HTTP  -->
+
+        <div>
+            <!-- El "for" se relaciona con el "id" de un input -->
+            <label for="texto">Texto: </label>
+            <input type="text" id="texto" name="txt" value="" placeholder="Digite un texto..." size="50" maxlength="50"
+                autofocus />
+
+            <!--   Algunos otros atributos:
+                         required (para campos obligatorios) 
+                         readonly (sólo lectura, permite enviar pero no editar)
+                         disabled (no permite ni editar ni enviar)
+                         autofocus (automáticamente coloca el cursor en el campo)
+            -->
+        </div>
+
+
+        <div>
+
+            <label for="oculto">Texto oculto: </label>
+            <!--
+                Al utilizar este tipo de entrada, los datos se ven en la barra de búsqueda,
+                por lo que no es una buena opción para introducir contraseñas.
+            -->
+            <input type="password" name="oculto" id="oculto" size="10" maxlength="10">
+
+        </div>
+
+        <div>
+            <label>Radio botones</label>
+            <input type="radio" name="radio" id="r1" value="Radio1"><label for="r1">Radio 1</label>
+            <input type="radio" name="radio" id="r2" value="Radio2"><label for="r1" checked>Radio 2</label>
+            <input type="radio" name="radio" id="r3" value="Radio3"><label for="r1">Radio 3</label>
+            <!--
+                Sólo se selecciona un botón cuando todos los radio botones tienen el mismo name.
+            -->
+        </div>
+
+        <div>
+            <label for="">Cajas de chequeo</label>
+            <input type="checkbox" name="chk" id="check1" value="Check1"><label for="check1">Check 1</label>
+            <input type="checkbox" name="chk" id="check2" value="Check2"><label for="check2">Check 2</label>
+        </div>
+
+        <div>
+            <label for="opciones">Opciones: </label>
+            <select name="opc" id="opciones" multiple>
+                <!-- multiple permite seleccionar varias opciones, sin él, sólo una. -->
+                <option value="">Seleccionar...</option>
+                <option value="op1">Opción 1</option>
+                <option value="op2">Opción 2</option>
+                <option value="op3">Opción 3</option>
+                <option value="op4">Opción 4</option>
+                <option value="op5">Opción 5</option>
+                <!-- Selected coloca la opción al principio de la lista -->
+            </select>
+
+            <!-- select es un contenedor de opciones -->
+        </div>
+
+        <div>
+            <label for="lengProg">Lenguajes de programación</label>
+            <input type="text" name="lengProg" id="lengProg" size="20" list="lenguajes">
+        </div>
+
+        <datalist id="lenguajes">
+            <option value="JavaScript"></option>
+            <option value="Rust>"></option>
+            <option value="Go"></option>
+            <option value="Python"></option>
+        </datalist>
+
+        <div>
+            <label for="cita">Hora de la cita: </label>
+            <input type="time" name="cita" id="cita" list="horas">
+        </div>
+
+        <datalist id="horas">
+            <option value="09:00"></option>
+            <option value="11:00"></option>
+            <option value="15:00"></option>
+        </datalist>
+
+
+        <div>
+            <label for="checkboolean">Caja booleana (Viene de una pregunta)</label>
+            <input type="checkbox" name="chlbool" id="checkboolean">
+        </div>
+
+        <div>
+            <label for="valor">Valor: </label>
+            <input type="number" name="valor" id="valor" min="1" max="1000" step="0.1">
+
+        </div>
+
+        <div>
+            <label for="rango">Rango</label>
+            <input type="range" name="rango" id="rango" min="1" max="10">
+        </div>
+
+        <div>
+            <label for="correo">Correo</label>
+            <input type="email" name="correo" id="correo">
+        </div>
+
+        <div>
+            <label for="fecha">Fecha: </label>
+            <input type="date" name="fecha" id="fecha" min="2024-01-01" max="2024-03-31">
+
+        </div>
+
+        <div>
+            <label for="color">Color: </label>
+            <input type="color" name="color" id="color">
+        </div>
+
+        <!--    Area de texto     -->
+        <div>
+            <label for="area">Área de texto: </label>
+            <textarea name="area" id="area" cols="30" rows="5" placeholder="Observación: "></textarea>
+        </div>
+
+        <!--    Input secreto     -->
+        <input type="hidden" name="secreto" id="secreto" value="lengProgAv1">
+
+        <!--    URL     -->
+        <div>
+            <label for="dirWeb">Dirección web</label>
+            <input type="url" name="dirWeb" id="dirWeb">
+        </div>
+
+
+        <!--  input genera más tipos de atributos que sólo botones  -->
+        <!--  button sólo genera botones (obviously)  -->
+
+        <div>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpiar">
+        </div>
+
+
+    </form>
+</body>
+
+</html>
